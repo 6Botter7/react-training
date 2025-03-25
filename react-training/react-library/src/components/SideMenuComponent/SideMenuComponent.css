@@ -1,0 +1,114 @@
+.side-menu {
+    
+}
+
+.side-menu-header {
+    display: flex;
+    align-items: center;
+}
+
+#burger-menu-btn {
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+    width: max-content;
+    padding: 0.125rem;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.burger-menu {
+    display: flex;
+    width: 2rem;
+    height: 0.25rem;
+    background-color: #15d8ce;
+    margin: 0.25rem;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+
+.burger-menu-btn.expanded {
+    /* background-color: #25d815; */
+}
+
+.burger-menu-btn.expanded .burger-menu {
+    background-color: #15d8ce;
+}
+
+.burger-menu-btn.expanded .burger-menu:nth-child(1) {
+    transform: rotate(45deg) translate(0.25rem, 0.25rem);
+    transition: 0.3s;
+}
+
+.burger-menu-btn.expanded .burger-menu:nth-child(2) {
+    display: none;
+}
+
+.burger-menu-btn.expanded .burger-menu:nth-child(3) {
+    transform: rotate(-45deg) translate(0.25rem, -0.25rem);
+    transition: 0.3s;
+}
+
+h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+h2.closed {
+    display: none;
+}
+
+.menu-content.closed {
+    position: absolute;
+    top: 3rem;
+    left: -100%; /* Slide off-screen to the left */
+    width: 300px;
+    height: 100%;
+    background-color: #1c2524fa;
+    z-index: 1;
+    transition: left 0.5s ease-in-out; /* Smooth sliding transition */
+}
+
+/* Open state - slide in from the left */
+.menu-content.open {
+    position: absolute;
+    top: 3rem;
+    left: 0; /* Position it fully in view */
+    width: 300px;
+    height: 100%;
+    background-color: #1c2524fa;
+    border: #0dcce6 1.5px solid;
+    border-radius: 0 10px 0 10px;
+    z-index: 1;
+    transition: left 0.3s ease-in-out; /* Smooth sliding transition */
+}
+
+.menu-content ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 1rem;
+}
+
+.menu-content ul li {
+    padding: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #fff;
+    cursor: pointer;
+}
+
+.menu-content ul li:hover {
+    /* background-color: #0dcce6; */
+    border-radius: 10px;
+    border-bottom: #0dcce6 1px solid;
+    color: #0dcce6;
+}
