@@ -70,26 +70,25 @@ h2.closed {
 .menu-content.closed {
     position: absolute;
     top: 3rem;
-    left: -100%; /* Slide off-screen to the left */
+    left: -100%;
     width: 300px;
     height: 100%;
     background-color: #1c2524fa;
     z-index: 1;
-    transition: left 0.5s ease-in-out; /* Smooth sliding transition */
+    transition: left 0.5s ease-in-out;
 }
 
-/* Open state - slide in from the left */
 .menu-content.open {
     position: absolute;
     top: 3rem;
-    left: 0; /* Position it fully in view */
+    left: 0;
     width: 300px;
     height: 100%;
     background-color: #1c2524fa;
     border: #0dcce6 1.5px solid;
     border-radius: 0 10px 0 10px;
     z-index: 1;
-    transition: left 0.3s ease-in-out; /* Smooth sliding transition */
+    transition: left 0.3s ease-in-out;
 }
 
 .menu-content ul {
