@@ -16,7 +16,7 @@ function SecondComponent() {
     };
 
     return (
-        <div>
+        <div className='second-component'>
             <h2>Users</h2>
             <ul>
                 {users.map(user => (

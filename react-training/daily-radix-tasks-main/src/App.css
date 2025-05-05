@@ -40,29 +40,3 @@
 .read-the-docs {
   color: #888;
 }
-
-#gg-ez {
-  color: rgb(50, 173, 230);
-  font-style: italic;
-  font-weight: bold;
-}
-
-.second-component ul li {
-  display: flex;
-  justify-content: space-around;
-  font-style: italic;
-  color: red;
-  transition: color 300ms;
-}
-
-.second-component ul li[data-is-active="true"] {
-  color: chartreuse;
-  font-style: normal;
-  transition: color 300ms;
-}
-
-
-.active {
-  color: chartreuse;
-  font-style: italic;
-}
