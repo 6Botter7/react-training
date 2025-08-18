@@ -14,8 +14,6 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/todo-list" element={<TodoList />} />
           <Route path="/example2" element={<div>Example 2 - Coming Soon!</div>} />
-
-          
         </Routes>
       </Box>
     </Box>
