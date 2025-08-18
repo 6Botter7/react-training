@@ -1,5 +1,6 @@
 import Button from '@mui/material/Button';
-import { TextField } from '@mui/material';
+import { Box, TextField } from '@mui/material';
+import Input from '@mui/material/Input';
 import { useState } from 'react';
 
 function ToDoListInput() {
@@ -9,27 +10,49 @@ function ToDoListInput() {
     setInputValue(event.target.value);
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    if (inputValue.trim()) {
-      // Dispatch an action or call a function to add the new todo
-      setInputValue('');
-    }
+  const addTask = () => {
+    console.log(inputValue);
+    // add task to the list
+    
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <Box>
       <TextField
         label="New ToDo"
+        type='search' // added this to get that clear button
         variant="outlined"
         value={inputValue}
         onChange={handleInputChange}
         fullWidth
+        sx={{
+          '& .MuiOutlinedInput-root': {
+            '& fieldset': {
+              borderColor: '#0961a8ff',
+            },
+            '&:hover fieldset': {
+              borderColor: '#0961a8ff',
+            },
+            '& input': {
+              color: 'silver', // Text color
+            }
+          },
+          '& .MuiInputLabel-root': {
+            color: 'white',
+          },
+          '& .MuiInputLabel-root.Mui-focused': {
+            color: 'white',
+          },
+          '& .MuiFormHelperText-root': {
+            color: 'silver',
+          },
+        }}
+        helperText="Enter your todo item..."
       />
-      <Button type="submit" variant="contained" color="primary">
+      <Button variant="contained" color="primary" onClick={addTask}>
         Add
       </Button>
-    </form>
+    </Box>
   );
 }
 

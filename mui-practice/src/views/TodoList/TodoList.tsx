@@ -1,13 +1,16 @@
 import { Button } from '@mui/material';
+import React from 'react';
+import ToDoListInput from './ToDoListInput';
+import ToDoListTaskContainer from './ToDoListTaskContainer';
 
 function TodoList() {
   return (
     <div>
-      <Button variant="contained" color="primary">
-        Click Me!
-      </Button>
+      <ToDoListInput />
+      <ToDoListTaskContainer />
     </div>
   );
 }
+
 
 export default TodoList;
