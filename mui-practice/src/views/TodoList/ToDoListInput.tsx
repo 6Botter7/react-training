@@ -1,9 +1,12 @@
 import Button from '@mui/material/Button';
 import { Box, TextField } from '@mui/material';
-import Input from '@mui/material/Input';
 import { useState } from 'react';
 
-function ToDoListInput() {
+interface ToDoListInputProps {
+  onAddTask: (taskText: string) => void;
+}
+
+function ToDoListInput({ onAddTask }: ToDoListInputProps) {
   const [inputValue, setInputValue] = useState('');
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -11,9 +14,10 @@ function ToDoListInput() {
   };
 
   const addTask = () => {
-    console.log(inputValue);
-    // add task to the list
-    
+    if (inputValue.trim()) {
+      onAddTask(inputValue); // Call parent function
+      setInputValue(''); // Clear input
+    }
   };
 
   return (
