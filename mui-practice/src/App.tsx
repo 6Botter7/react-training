@@ -3,6 +3,7 @@ import { Box } from '@mui/material';
 import CustomAppBar from './components/CustomAppBar';
 import Home from './views/Home/Home';
 import TodoList from './views/TodoList/TodoList';
+import Themes from './views/Themes/Themes';
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/todo-list" element={<TodoList />} />
-          <Route path="/example2" element={<div>Example 2 - Coming Soon</div>} />
+          <Route path="/themes" element={<Themes />} />
         </Routes>
       </Box>
     </Box>

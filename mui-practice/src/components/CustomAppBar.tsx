@@ -81,7 +81,7 @@ function CustomAppBar() {
           >
             <MenuItem onClick={() => handleNavigateAndClose('/')}>Home</MenuItem>
             <MenuItem onClick={() => handleNavigateAndClose('/todo-list')}>ToDo List</MenuItem>
-            <MenuItem onClick={() => handleNavigateAndClose('/example2')}>Example 2</MenuItem>
+            <MenuItem onClick={() => handleNavigateAndClose('/themes')}>Themes</MenuItem>
           </Menu>
           <Dialog open={aboutOpen} onClose={handleAboutClose}>
             <DialogTitle>About</DialogTitle>
