@@ -18,6 +18,8 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
+import ThemeSwitchComponent from "./ThemeSwitchComponent"
+
 function CustomAppBar() {
   const navigate = useNavigate();
   
@@ -54,7 +56,7 @@ function CustomAppBar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{ backgroundColor: '#282c34', width: '100%' }}>
+      <AppBar position="static" sx={{ width: '100%' }}>
         <Toolbar>
           <IconButton
             size="large"
@@ -68,7 +70,8 @@ function CustomAppBar() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             MUI Training for Noobs
           </Typography>
-          <Button color="inherit" onClick={handleAboutOpen}>
+          <ThemeSwitchComponent />
+          <Button color="secondary" variant="contained" onClick={handleAboutOpen}>
             About
           </Button>
           <Menu

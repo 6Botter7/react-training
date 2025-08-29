@@ -1,5 +1,4 @@
 import * as React from 'react';
-// import Button from '@mui/material/Button';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -8,6 +7,7 @@ import ListItemText from '@mui/material/ListItemText';
 import Checkbox from '@mui/material/Checkbox';
 import IconButton from '@mui/material/IconButton';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import { Typography } from '@mui/material';
 
 interface Task {
   id: number;
@@ -17,16 +17,10 @@ interface Task {
 
 interface ToDoListTaskContainerProps {
   tasks: Task[];
-  onDeleteTask: (id: number) => void; // Add this line
+  onDeleteTask: (id: number) => void;
 }
 
 function ToDoListTaskContainer({ tasks, onDeleteTask }: ToDoListTaskContainerProps) {
-//   return (
-//     <List subheader={<li>Tasks To Do</li>} sx={{ bgcolor: '#282c34' , padding: 2 , marginTop: 2 }}>
-//       <ListItem divider secondaryAction={<Button>Action</Button>} sx={{  }}>Task 1</ListItem>
-//       <ListItem divider secondaryAction={<Button>Action</Button>} sx={{ }}>Task 2</ListItem>
-//     </List>
-//   );
 
   const [checked, setChecked] = React.useState([0]);
 
@@ -45,13 +39,24 @@ function ToDoListTaskContainer({ tasks, onDeleteTask }: ToDoListTaskContainerPro
 
   const handleDelete = (id: number) => {
     onDeleteTask(id); // Call parent function instead of managing local state
-  };return (
-    <List subheader={<li>Tasks To Do</li>} sx={{ bgcolor: '#282c34' , padding: 2 , marginTop: 2 }}>
+  };
+  return (
+    <List subheader={<Typography variant="h2" component="h2">
+      Tasks To Do
+    </Typography>
+  }
+  sx={{ bgcolor: 'primary.main', padding: 2, marginTop: 2 }}>
       {tasks.map((task, index) => {
         const labelId = `checkbox-list-label-${index}`;
 
         return (
           <ListItem
+            sx={(theme) => ({
+              color: theme.palette.primary.contrastText,
+              '&:hover': {
+                backgroundColor: 'rgba(15, 211, 218, 0.65)',
+              },
+            })}
             key={task.id}
             secondaryAction={
               <IconButton 
@@ -60,19 +65,19 @@ function ToDoListTaskContainer({ tasks, onDeleteTask }: ToDoListTaskContainerPro
                 onClick={() => handleDelete(task.id)}
                 sx={{
                   '&:hover': {
-                    backgroundColor: 'rgba(255, 0, 0, 0.1)', // Light red background on hover
-                    transform: 'scale(1.1)', // Slightly grow on hover
+                    backgroundColor: 'rgba(255, 0, 0, 0.1)',
+                    transform: 'scale(1.1)', 
                   },
-                  transition: 'all 0.2s ease-in-out', // Smooth animation
+                  transition: 'all 0.2s ease-in-out', 
                 }}
               >
                 <DeleteOutlineIcon sx={{ 
                   color: 'red',
                   '&:hover': {
-                    color: '#ff4444', // Brighter red on hover
+                    color: '#ff4444', 
                     filter: 'drop-shadow(0 2px 4px rgba(255, 0, 0, 0.3))', // Red drop shadow
                   },
-                  transition: 'all 0.2s ease-in-out', // Smooth animation
+                  transition: 'all 0.2s ease-in-out',
                 }}/>
               </IconButton>
             }
@@ -85,9 +90,26 @@ function ToDoListTaskContainer({ tasks, onDeleteTask }: ToDoListTaskContainerPro
                   checked={checked.includes(task.id)}
                   tabIndex={-1}
                   disableRipple
+                  sx={{
+                    color: 'secondary.main',
+                    '&.Mui-checked': {
+                      color: 'primary.contrastText',
+                    },
+                  }}
                 />
               </ListItemIcon>
-              <ListItemText id={labelId} primary={task.text} />
+              <ListItemText
+                id={labelId}
+                primary={
+                  <Typography
+                    sx={(theme) => ({
+                      color: theme.palette.primary.contrastText,
+                    })}
+                  >
+                    {task.text}
+                  </Typography>
+                }
+              />
             </ListItemButton>
           </ListItem>
         );

@@ -38,15 +38,11 @@ function ToDoListInput({ onAddTask }: ToDoListInputProps) {
               borderColor: '#0961a8ff',
             },
             '& input': {
-              color: 'silver', // Text color
+              color: 'text.primary',
             }
           },
-          '& .MuiInputLabel-root': {
-            color: 'white',
-          },
-          '& .MuiInputLabel-root.Mui-focused': {
-            color: 'white',
-          },
+          
+          
           '& .MuiFormHelperText-root': {
             color: 'silver',
           },
